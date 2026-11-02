@@ -110,7 +110,7 @@ export function buildAlertsFilter(
   if (params.source != null) {
     // SAVED_SEARCH is the default value when source is missing from the document, so we include
     // documents without the field as well when filtering for saved-search alerts.
-    filter.source = inOrMissing(params.source, AlertSource.SAVED_SEARCH);
+    filter.source = { $in: params.source };
   }
 
   if (params.search) {
